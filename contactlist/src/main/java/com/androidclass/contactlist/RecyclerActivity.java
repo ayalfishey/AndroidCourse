@@ -17,6 +17,7 @@ public class RecyclerActivity extends AppCompatActivity {
         ContactAdapter adapter = new ContactAdapter();
         recyclerView.setAdapter(adapter);
 
-        RecyclerView.LayoutManager manager = new LinearLayoutManager(this , RecyclerView.HORIZONTAL, false);
+        RecyclerView.LayoutManager manager = new LinearLayoutManager(this , RecyclerView.VERTICAL, false);
+        recyclerView.setLayoutManager(manager);
     }
 }

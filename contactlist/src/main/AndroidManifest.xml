@@ -9,12 +9,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".RecyclerActivity"></activity>
+        <activity android:name=".SplashActivity"></activity>
         <activity android:name=".AltSplashActivity" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".ContactListActivity" />
         <activity android:name=".ContactActivity" />
-        <activity android:name=".SplashActivity">
+        <activity android:name=".RecyclerActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
