@@ -1,5 +1,6 @@
 package com.androidclass.contactlist;
 
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +11,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class ContactAdapter extends RecyclerView.Adapter<ContactViewHolder> {
+
+
     @NonNull
     @Override
     public ContactViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -19,7 +22,9 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull ContactViewHolder holder, int position) {
-        holder.name.setText("holder"+position);
+        holder.name.setText(position + "");
+        if(position%2==0)
+            holder.img.setBackgroundColor(Color.RED);
     }
 
     @Override
