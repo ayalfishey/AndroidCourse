@@ -10,8 +10,12 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
+import java.util.Random;
+
 public class ContactAdapter extends RecyclerView.Adapter<ContactViewHolder> {
 
+    private ArrayList<Person> people = getPeople();
 
     @NonNull
     @Override
@@ -22,14 +26,33 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull ContactViewHolder holder, int position) {
-        holder.name.setText(position + "");
-        if(position%2==0)
-            holder.img.setBackgroundColor(Color.RED);
+        holder.name.setText("Age = " + people.get(position).getAge());
+        holder.adress.setText("Gender = " + people.get(position).getGender());
+        if (people.get(position).getGender() == 'M') {
+            if (!(people.get(position).getAge() < 65))
+                holder.img.setBackgroundColor(Color.RED);
+            else
+                holder.img.setBackgroundColor(Color.BLUE);
+        }else{
+            if (!(people.get(position).getAge() < 67))
+                holder.img.setBackgroundColor(Color.GREEN);
+            else
+                holder.img.setBackgroundColor(Color.YELLOW);
+        }
     }
 
     @Override
     public int getItemCount() {
-        return 50;
+        return people.size();
+    }
+    public ArrayList<Person> getPeople(){
+        Random random = new Random();
+        ArrayList<Person> arrayList = new ArrayList<>();
+        for (int i = 0; i < 150; i++) {
+            arrayList.add(new Person ("First " + i, "Last "+ i, random.nextInt(101)-1 ));
+                arrayList.get(i).setGender(i%3 ==0);
+        }
+        return arrayList;
     }
 }
 

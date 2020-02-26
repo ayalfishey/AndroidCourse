@@ -3,6 +3,7 @@ package com.androidclass.contactlist;
 public class Person {
     private String firstN, lastN;
     private int age;
+    private char gender;
 
     public Person(String firstN, String lastN, int age) {
         this.firstN = firstN;
@@ -32,5 +33,16 @@ public class Person {
 
     public void setAge(int age) {
         this.age = age;
+    }
+
+    public char getGender() {
+        return gender;
+    }
+
+    public void setGender(boolean gender){
+        if(gender)
+            this.gender = 'F';
+        else
+            this.gender = 'M';
     }
 }
